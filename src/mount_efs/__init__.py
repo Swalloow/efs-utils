@@ -45,9 +45,9 @@ from contextlib import contextmanager
 from logging.handlers import RotatingFileHandler
 
 try:
-    import ConfigParser
+    import ConfigParser as cp
 except ImportError:
-    from configparser import ConfigParser
+    import configparser as cp
 
 try:
     from urllib2 import urlopen, URLError
@@ -585,7 +585,7 @@ def assert_root():
 
 
 def read_config(config_file=CONFIG_FILE):
-    p = ConfigParser.SafeConfigParser()
+    p = cp.ConfigParser()
     p.read(config_file)
     return p
 
